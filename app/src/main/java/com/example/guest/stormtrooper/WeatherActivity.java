@@ -11,7 +11,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class WeatherActivity extends AppCompatActivity {
+public class WeatherActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.returnWeatherButton) Button mReturnWeatherButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
 
@@ -21,12 +21,18 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         ButterKnife.bind(this);
 
-//        mReturnWeatherButton.setOnClickListener(this);
+        mReturnWeatherButton.setOnClickListener(this);
 
     }
 
-//    @Override
-//    public void onClick(View v){
-//
-//    }
+    @Override
+    public void onClick(View v){
+        if (v == mReturnWeatherButton) {
+            String location = mLocationEditText.getText().toString();
+            Intent intent = new Intent(WeatherActivity.this,RecreationActivity.class);
+            intent.putExtra("location",location);
+            startActivity(intent);
+        }
+
+    }
 }

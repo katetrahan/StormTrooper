@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WeatherActivity" />
+        <activity android:name=".WeatherActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.guest.stormtrooper.MainActivity">
+        </meta-data>
+        </activity>
+        <activity android:name=".RecreationActivity"></activity>
     </application>
 
 </manifest>
