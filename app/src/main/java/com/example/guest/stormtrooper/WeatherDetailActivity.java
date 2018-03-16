@@ -19,8 +19,6 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.detailsTextView) TextView mDetailsTextView;
     @BindView(R.id.getIdeasButton) Button mGetIdeasButton;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

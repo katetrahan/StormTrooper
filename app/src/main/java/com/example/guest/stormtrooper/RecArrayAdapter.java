@@ -12,20 +12,17 @@ public class RecArrayAdapter extends ArrayAdapter {
         this.mContext = mContext;
         this.mRecreation = mRecreation;
         this.mWhere = mWhere;
-//        this.mRainyDay = mRainyDay;
     }
 
     @Override
     public Object getItem(int position) {
         String recreation = mRecreation[position];
-//        String rainyDay = mRainyDay[position];
         String where = mWhere[position];
-        return String.format("%s \nWhere:%s", recreation, where); //need to add rainyday next week
+        return String.format("%s \nWhere:%s", recreation, where);
     }
 
     @Override
     public int getCount() {
       return mRecreation.length;
-//       return mRainyDay.length;
     }
 }
