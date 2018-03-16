@@ -40,8 +40,8 @@ _This application is used to take in the User's Location and share the weather o
 ## Setup/Installation Requirements
 
 * _Clone repository to your machine from GitHub_
-* _Open cloned repository in text editor_
-* _Click AVD Manager in upper right hand corner of tool bar.
+* _Open cloned repository in Android Studio_
+* _Click AVD Manager in upper right hand corner of tool bar_
 * _Select Android Emulator (Nexus 6)_
 * _Run app_
 
