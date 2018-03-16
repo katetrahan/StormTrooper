@@ -1,6 +1,7 @@
 package com.example.guest.stormtrooper;
 
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -47,6 +48,10 @@ public class RecreationActivity extends AppCompatActivity {
 
 
                 mLocationTextView.setText("What can I do today");
+
+        FragmentManager fm = getFragmentManager();
+        WeatherDialogFragment weatherDialogFragment = new WeatherDialogFragment();
+        weatherDialogFragment.show(fm, "Sample Fragment");
 
 
 
