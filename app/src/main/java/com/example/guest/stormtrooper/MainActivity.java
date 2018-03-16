@@ -1,16 +1,19 @@
 package com.example.guest.stormtrooper;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.findWeatherButton) Button mFindWeatherButton;
+    @BindView(R.id.frontPageTextView) TextView mFrontPageTextView;
 
 
     @Override
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
+        mFrontPageTextView.setTypeface(ostrichFont);
 
         mFindWeatherButton.setOnClickListener(this);
     }
