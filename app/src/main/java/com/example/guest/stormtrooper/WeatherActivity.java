@@ -31,7 +31,7 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
 
 
             String location = mLocationEditText.getText().toString();
-            Intent intent = new Intent(WeatherActivity.this,RecreationActivity.class);
+            Intent intent = new Intent(WeatherActivity.this,WeatherDetailActivity.class);
             intent.putExtra("location",location);
             startActivity(intent);
         }

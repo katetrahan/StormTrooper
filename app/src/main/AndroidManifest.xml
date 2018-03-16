@@ -22,7 +22,18 @@
             android:value="com.example.guest.stormtrooper.MainActivity">
         </meta-data>
         </activity>
-        <activity android:name=".RecreationActivity"></activity>
+        <activity  android:name=".WeatherDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.stormtrooper.WeatherDetailActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".RecreationActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.stormtrooper.WeatherActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
