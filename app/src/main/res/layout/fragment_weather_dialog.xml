@@ -10,7 +10,7 @@
         android:layout_marginTop="50dp">
 
         <TextView
-            android:text="Fragment works"
+            android:text="Breezy Weather Activities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/weatherLabel"
