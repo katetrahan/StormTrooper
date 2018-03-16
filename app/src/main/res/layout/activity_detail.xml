@@ -20,7 +20,19 @@
         android:layout_marginTop="35dp"
         android:text="Weather Details"
         android:textSize="40sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryLight"/>
+
+    <TextView
+        android:id="@+id/detailsDataTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailsTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="121dp"
+        android:text="Breezy"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/getIdeasButton"
@@ -30,7 +42,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@color/colorAccent"
-        android:text="Get Activities For Today" />
+        android:text="What should I do today?" />
 
 
 

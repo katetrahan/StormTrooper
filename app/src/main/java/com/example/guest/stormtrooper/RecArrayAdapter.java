@@ -17,7 +17,7 @@ public class RecArrayAdapter extends ArrayAdapter {
     @Override
     public Object getItem(int position) {
         String recreation = mRecreation[position];
-        return String.format(" \nIdeas: %s", recreation);
+        return String.format(" \n %s", recreation);
     }
 
     @Override

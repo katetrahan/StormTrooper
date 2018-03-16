@@ -46,7 +46,7 @@ public class RecreationActivity extends AppCompatActivity {
         mLocationTextView.setTypeface(droidFont);
 
 
-                mLocationTextView.setText("The weather for:  " + location);
+                mLocationTextView.setText("What can I do today");
 
 
 
