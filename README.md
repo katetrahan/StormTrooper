@@ -55,8 +55,8 @@ _If you have any issues or have questions, ideas or concerns please email kathry
 
 ## Technologies Used
 
-* _MarkDown_
-* _Atom_
+* _Java_
+* _Android Studio_
 
 
 ### License
