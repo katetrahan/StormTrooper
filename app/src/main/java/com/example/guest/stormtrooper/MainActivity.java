@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Typeface ostrichFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
-        mFrontPageTextView.setTypeface(ostrichFont);
+        Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
+        mFrontPageTextView.setTypeface(droidFont);
 
         mFindWeatherButton.setOnClickListener(this);
     }
