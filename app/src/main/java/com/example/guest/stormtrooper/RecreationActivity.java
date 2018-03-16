@@ -17,6 +17,7 @@ public class RecreationActivity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
     private String[] recreation = new String[] {"Walk", "Run", "Swim", "Fly a kite", "Drink coffee", "Go to a movie", "Call your mom"};
     private String[] rainyDay = new String[] { "go to a movie", "watch netflix", "clean your room", "learn to sew"};
+    private String[] where = new String[] {"Terwiliger", "Forest Park", "Portland State Pool", "Local Park", "Stumptown", "Fox Tower Theatre", "Anywhere"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class RecreationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recreation);
         ButterKnife.bind(this);
 
-        RecArrayAdapter adapter = new RecArrayAdapter(this, android.R.layout.simple_list_item_1, recreation);
+        RecArrayAdapter adapter = new RecArrayAdapter(this, android.R.layout.simple_list_item_1, recreation, where);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -38,6 +39,8 @@ public class RecreationActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+        intent.putExtra("recreation", recreation);
+        intent.putExtra("where", where);
 
         Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
         mLocationTextView.setTypeface(droidFont);

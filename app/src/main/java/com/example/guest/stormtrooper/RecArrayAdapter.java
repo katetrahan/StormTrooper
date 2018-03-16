@@ -5,11 +5,13 @@ import android.widget.ArrayAdapter;
 public class RecArrayAdapter extends ArrayAdapter {
     private Context mContext;
     private String[] mRecreation;
+    private String[] mWhere;
 
-    public RecArrayAdapter(Context mContext, int resource, String[] mRecreation){
+    public RecArrayAdapter(Context mContext, int resource, String[] mRecreation, String[] mWhere){
         super(mContext, resource);
         this.mContext = mContext;
         this.mRecreation = mRecreation;
+        this.mWhere = mWhere;
 //        this.mRainyDay = mRainyDay;
     }
 
@@ -17,7 +19,8 @@ public class RecArrayAdapter extends ArrayAdapter {
     public Object getItem(int position) {
         String recreation = mRecreation[position];
 //        String rainyDay = mRainyDay[position];
-        return String.format(" \n %s", recreation); //need to add rainyday next week
+        String where = mWhere[position];
+        return String.format("%s \nWhere:%s", recreation, where); //need to add rainyday next week
     }
 
     @Override
