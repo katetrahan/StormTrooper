@@ -3,6 +3,7 @@ package com.example.guest.stormtrooper;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.getIdeasButton) Button mGetIdeasButton;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,9 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+
+        Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
+        mDetailsTextView.setTypeface(droidFont);
 
 
         mDetailsTextView.setText("The weather for:  " + location);

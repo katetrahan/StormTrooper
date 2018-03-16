@@ -2,6 +2,7 @@ package com.example.guest.stormtrooper;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,6 +41,9 @@ public class RecreationActivity extends AppCompatActivity {
 
                 Intent intent = getIntent();
                 String location = intent.getStringExtra("location");
+
+        Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
+        mLocationTextView.setTypeface(droidFont);
 
 
                 mLocationTextView.setText("The weather for:  " + location);
