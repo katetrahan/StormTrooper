@@ -28,6 +28,8 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v){
         if (v == mReturnWeatherButton) {
+
+
             String location = mLocationEditText.getText().toString();
             Intent intent = new Intent(WeatherActivity.this,RecreationActivity.class);
             intent.putExtra("location",location);

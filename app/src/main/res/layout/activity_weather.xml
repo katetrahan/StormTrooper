@@ -33,7 +33,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@color/colorAccent"
-        android:text="Get Weather" />
+        android:text="Get Activities" />
 
 
 </RelativeLayout>
