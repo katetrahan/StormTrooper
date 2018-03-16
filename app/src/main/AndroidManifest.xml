@@ -25,13 +25,13 @@
         <activity  android:name=".WeatherDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.stormtrooper.WeatherDetailActivity">
+                android:value="com.example.guest.stormtrooper.WeatherActivity">
             </meta-data>
         </activity>
         <activity android:name=".RecreationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.stormtrooper.WeatherActivity">
+                android:value="com.example.guest.stormtrooper.WeatherDetailActivity">
             </meta-data>
         </activity>
     </application>
