@@ -11,6 +11,7 @@ import android.widget.TextView;
 import okhttp3.Call;
 import okhttp3.Callback;
 
+import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
 import com.example.guest.stormtrooper.services.WeatherService;
 
@@ -69,9 +70,11 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                 try {
                     String jsonData = response.body().string();
                     Log.v(TAG, jsonData);
+//                    Log.v(TAG, WeatherService.findWeather(String location, Callback callback));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
             }
 
 

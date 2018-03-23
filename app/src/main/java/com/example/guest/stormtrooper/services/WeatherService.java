@@ -1,5 +1,7 @@
 package com.example.guest.stormtrooper.services;
 
+import android.graphics.drawable.Drawable;
+
 import com.example.guest.stormtrooper.Constants;
 
 import okhttp3.Call;
@@ -15,8 +17,10 @@ public class WeatherService {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.Y_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.Y_QUERY_PARAMETER, location);
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.W_BASE_URL).newBuilder();
+        urlBuilder.addQueryParameter(Constants.W_QUERY_PARAMETER, location);
+//        urlBuilder.addQueryParameter(Constants.);
+        urlBuilder.addQueryParameter(Constants.W_END_URL,Constants.W_TOKEN);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
