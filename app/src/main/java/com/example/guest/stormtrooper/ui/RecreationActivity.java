@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +28,7 @@ import butterknife.ButterKnife;
 import okhttp3.Response;
 
 public class RecreationActivity extends AppCompatActivity {
-    public static final String TAG = WeatherActivity.class.getSimpleName();
+    public static final String TAG = RecreationActivity.class.getSimpleName();
     @BindView(R.id.locationTextView)
     TextView mLocationTextView;
     @BindView(R.id.listView)
@@ -47,14 +48,14 @@ public class RecreationActivity extends AppCompatActivity {
 //        RecArrayAdapter adapter = new RecArrayAdapter(this, android.R.layout.simple_list_item_1, recreation, where);
 //        mListView.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String recreation = ((TextView) view).getText().toString();
-                Toast.makeText(RecreationActivity.this, recreation, Toast.LENGTH_LONG).show();
-
-            }
-        });
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                String recreation = ((TextView) view).getText().toString();
+//                Toast.makeText(RecreationActivity.this, recreation, Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
@@ -84,15 +85,36 @@ public class RecreationActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    if (response.isSuccessful()) {
-                        Log.v(TAG, jsonData);
-                        weathers = yService.processResults(response);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                weathers = yService.processResults(response);
+
+                RecreationActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] weathersMains = new String[weathers.size()];
+                        for (int i = 0; i < weathersMains.length; i++) {
+                            weathersMains[i] = weathers.get(i).getMain();
+                        }
+
+                        ArrayAdapter  adapter = new ArrayAdapter(RecreationActivity.this,
+                                android.R.layout.simple_list_item_1,weathersMains);
+                        mListView.setAdapter(adapter);
+
+                        for (Weather weather: weathers) {
+                            Log.d(TAG, "Main"+ weather.getMain());
+                        }
+
                 }
+
+                });
+//                try {
+//                    String jsonData = response.body().string();
+//                    if (response.isSuccessful()) {
+//                        Log.v(TAG, jsonData);
+//                        weathers = yService.processResults(response);
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
 
