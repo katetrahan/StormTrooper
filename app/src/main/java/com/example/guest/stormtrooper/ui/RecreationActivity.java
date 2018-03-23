@@ -23,6 +23,8 @@ public class RecreationActivity extends AppCompatActivity {
     private String[] rainyDay = new String[] { "go to a movie", "watch netflix", "clean your room", "learn to sew"};
     private String[] where = new String[] {"Terwiliger", "Forest Park", "Portland State Pool", "Local Park", "Stumptown", "Fox Tower Theatre", "Anywhere"};
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

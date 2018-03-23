@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.guest.stormtrooper.R;
@@ -14,6 +15,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.findWeatherButton) Button mFindWeatherButton;
+    @BindView(R.id.locationEditText) EditText mLocationEditText;
     @BindView(R.id.frontPageTextView) TextView mFrontPageTextView;
 
     @Override
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick (View v) {
         if(v == mFindWeatherButton){
+            String location = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this,WeatherActivity.class);
+            intent.putExtra("location",location);
             startActivity(intent);
         }
     }
