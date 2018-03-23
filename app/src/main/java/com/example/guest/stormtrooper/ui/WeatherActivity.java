@@ -15,9 +15,11 @@ import okhttp3.Callback;
 
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
+import com.example.guest.stormtrooper.models.Weather;
 import com.example.guest.stormtrooper.services.WeatherService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +33,8 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
     EditText mLocationEditText;
     @BindView(R.id.locationPageTextView)
     TextView mLocationPageTextView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
