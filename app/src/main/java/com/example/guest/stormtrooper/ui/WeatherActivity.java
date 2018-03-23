@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 
@@ -49,9 +51,14 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == mReturnWeatherButton) {
             String location = mLocationEditText.getText().toString();
-            Intent intent = new Intent(WeatherActivity.this, WeatherDetailActivity.class);
-            intent.putExtra("location", location);
-            startActivity(intent);
+            if(location.length() <= 1){
+                Toast.makeText(WeatherActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(WeatherActivity.this, WeatherDetailActivity.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
+
+            }
         }
 
     }
