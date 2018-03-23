@@ -70,7 +70,7 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                 try {
                     String jsonData = response.body().string();
                     Log.v(TAG, jsonData);
-//                    Log.v(TAG, WeatherService.findWeather(String location, Callback callback));
+//                    Log.v(TAG,);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
