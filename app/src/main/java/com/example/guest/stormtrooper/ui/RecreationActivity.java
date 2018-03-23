@@ -67,9 +67,9 @@ public class RecreationActivity extends AppCompatActivity {
 
         mLocationTextView.setText("What can I do today");
 
-        FragmentManager fm = getFragmentManager();
-        WeatherDialogFragment weatherDialogFragment = new WeatherDialogFragment();
-        weatherDialogFragment.show(fm, "Sample Fragment");
+//        FragmentManager fm = getFragmentManager();
+//        WeatherDialogFragment weatherDialogFragment = new WeatherDialogFragment();
+//        weatherDialogFragment.show(fm, "Sample Fragment");
 
 
     }
@@ -95,7 +95,7 @@ public class RecreationActivity extends AppCompatActivity {
                             weathersMains[i] = weathers.get(i).getMain();
                         }
 
-                        ArrayAdapter  adapter = new ArrayAdapter(RecreationActivity.this,
+                        ArrayAdapter adapter = new ArrayAdapter(RecreationActivity.this,
                                 android.R.layout.simple_list_item_1,weathersMains);
                         mListView.setAdapter(adapter);
 

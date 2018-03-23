@@ -41,6 +41,10 @@ _This application is used to take in the User's Location and share the weather o
 
 * _Clone repository to your machine from GitHub_
 * _Open cloned repository in Android Studio_
+* _Create gradle.properties in root of project_
+* _Visit https://openweathermap.org/appid to get a ApiKey_
+* _Store key in ApiKey in gradle.properties
+* _add -org.gradle.jvmargs=-Xmx1536m to gradle.properties_
 * _Click AVD Manager in upper right hand corner of tool bar_
 * _Select Android Emulator (Nexus 6)_
 * _Run app_
