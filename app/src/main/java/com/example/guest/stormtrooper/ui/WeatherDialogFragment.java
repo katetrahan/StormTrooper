@@ -1,9 +1,11 @@
-package com.example.guest.stormtrooper;
+package com.example.guest.stormtrooper.ui;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.guest.stormtrooper.R;
 
 public class WeatherDialogFragment extends DialogFragment{
 

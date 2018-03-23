@@ -1,4 +1,4 @@
-package com.example.guest.stormtrooper;
+package com.example.guest.stormtrooper.adapters;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 

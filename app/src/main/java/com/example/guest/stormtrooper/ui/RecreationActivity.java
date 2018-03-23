@@ -1,4 +1,4 @@
-package com.example.guest.stormtrooper;
+package com.example.guest.stormtrooper.ui;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,6 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.guest.stormtrooper.R;
+import com.example.guest.stormtrooper.adapters.RecArrayAdapter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
