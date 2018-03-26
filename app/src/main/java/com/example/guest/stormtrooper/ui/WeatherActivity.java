@@ -25,70 +25,71 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Response;
 
-public class WeatherActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = WeatherActivity.class.getSimpleName();
-    @BindView(R.id.returnWeatherButton)
-    Button mReturnWeatherButton;
-    @BindView(R.id.locationEditText)
-    EditText mLocationEditText;
-    @BindView(R.id.locationPageTextView)
-    TextView mLocationPageTextView;
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather);
-        ButterKnife.bind(this);
-
-        Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
-        mLocationPageTextView.setTypeface(droidFont);
-        mReturnWeatherButton.setOnClickListener(this);
-        Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
-
-        getWeather(location);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v == mReturnWeatherButton) {
-            String location = mLocationEditText.getText().toString();
-            if(location.length() <= 1){
-                Toast.makeText(WeatherActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
-            } else {
-                Intent intent = new Intent(WeatherActivity.this, WeatherDetailActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
-
-            }
-        }
-
-    }
-
-    private void getWeather(String location) {
-        final WeatherService yService = new WeatherService();
-        yService.findWeather(location, new Callback() {
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-//                    Log.v(TAG,);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-
-        });
-    }
-}
+//public class WeatherActivity extends AppCompatActivity implements View.OnClickListener {
+//    public static final String TAG = WeatherActivity.class.getSimpleName();
+//    @BindView(R.id.returnWeatherButton)
+//    Button mReturnWeatherButton;
+//    @BindView(R.id.locationEditText)
+//    EditText mLocationEditText;
+////    @BindView(R.id.locationPageTextView)
+////    TextView mLocationPageTextView;
+//
+//
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_weather);
+//        ButterKnife.bind(this);
+//
+//        Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
+//        mLocationPageTextView.setTypeface(droidFont);
+//        mReturnWeatherButton.setOnClickListener(this);
+//        Intent intent = getIntent();
+//        String location = intent.getStringExtra("location");
+//
+//        getWeather(location);
+//    }
+//
+//    @Override
+//    public void onClick(View v) {
+//        if (v == mReturnWeatherButton) {
+//            String location = mLocationEditText.getText().toString();
+//            if(location.length() <= 1){
+//                Toast.makeText(WeatherActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
+//            } else {
+//                Intent intent = new Intent(WeatherActivity.this, WeatherDetailActivity.class);
+//                intent.putExtra("location", location);
+//                startActivity(intent);
+//
+//            }
+//        }
+//
+//    }
+//
+//    private void getWeather(String location) {
+//        final WeatherService yService = new WeatherService();
+//        String test = "portland";
+//        yService.findWeather(test, new Callback() {
+//
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                try {
+//                    String jsonData = response.body().string();
+//                    Log.v(TAG, jsonData);
+////                    Log.v(TAG,);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//
+//
+//        });
+//    }
+//}
