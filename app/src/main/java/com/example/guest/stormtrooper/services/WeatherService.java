@@ -2,17 +2,13 @@ package com.example.guest.stormtrooper.services;
 
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.models.Weather;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
@@ -25,10 +21,8 @@ public class WeatherService {
     public static ArrayList<Weather> weathers;
 
     public static void findWeather(String location, Callback callback) {
-
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
-
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.W_BASE_URL + location).newBuilder();
 //        urlBuilder.addQueryParameter(Constants.W_QUERY_PARAMETER, location);
 //        urlBuilder.addQueryParameter(Constants.);

@@ -8,9 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.guest.stormtrooper.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -44,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }
-        }
+
     }
+
+}
 

@@ -28,9 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailsTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="121dp"
-        android:text="Breezy"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="300dp"
         android:textSize="40sp"
         android:textStyle="bold" />
 
