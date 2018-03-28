@@ -53,15 +53,43 @@ public class WeatherService {
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
+    public ArrayList<Forecast> processForecastResults(Response response) {
+        forecasts = new ArrayList<>();
+        Log.v("BUTT", response.toString());
 
+
+        try {
+
+            String jsonData = response.body().string();
+            JSONObject wJSON = new JSONObject(jsonData);
+            Log.v("wJson", wJSON.toString());
+            JSONArray conditionsJSONarray= wJSON.getJSONArray("list");
+            Log.v("Log 4", "log 4");
+            for(int i=0; i<conditionsJSONarray.length(); i++){
+                JSONObject conditionsJSON = conditionsJSONarray.getJSONObject(i);
+                JSONArray weatherMain = conditionsJSON.getJSONArray("weather");
+                String date = conditionsJSON.getString("dt_txt");
+                String desc = weatherMain.getJSONObject(0).getString("main");
+                Forecast forecast = new Forecast(desc, date);
+                forecasts.add(forecast);
+            }
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return forecasts;
+    }
 
     public static ArrayList<Weather> getWeathers() {
         return weathers;
     }
 
     public ArrayList<Weather> processResults(Response response) {
-         weathers = new ArrayList<>();
-
+        weathers = new ArrayList<>();
+        Log.v("BUTT", response.toString());
         try {
 
             String jsonData = response.body().string();
@@ -84,32 +112,5 @@ public class WeatherService {
         return weathers;
     }
 
-    public ArrayList<Forecast> processForecastResults(Response response) {
-        forecasts = new ArrayList<>();
 
-        try {
-
-            String jsonData = response.body().string();
-
-            JSONObject wJSON = new JSONObject(jsonData);
-            Log.v("wJson", wJSON.toString());
-            JSONArray conditionsJSONarray= wJSON.getJSONArray("list");
-            Log.v("Log 4", "log 4");
-            for(int i=0; i<conditionsJSONarray.length(); i++){
-                JSONObject conditionsJSON = conditionsJSONarray.getJSONObject(i);
-                JSONObject weatherMain = conditionsJSON.getJSONObject("weather");
-                String date = conditionsJSON.getString("dt_txt");
-                String desc = weatherMain.getString("main");
-                Forecast forecast = new Forecast(desc, date);
-                forecasts.add(forecast);
-            }
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return forecasts;
-    }
 }

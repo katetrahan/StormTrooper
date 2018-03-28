@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.guest.stormtrooper.R;
+import com.example.guest.stormtrooper.models.Forecast;
 import com.example.guest.stormtrooper.models.Weather;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +14,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapter.WeatherViewHolder> {
-    private ArrayList<Weather> mWeather;
+    private ArrayList<Forecast> mForecast;
     private Context mContext;
 
-    public WeatherPagerAdapter(Context context, ArrayList<Weather> weathers) {
+    public WeatherPagerAdapter(Context context, ArrayList<Forecast> forecast) {
         mContext = context;
-        mWeather = weathers;
+        mForecast = forecast;
     }
     @Override
     public void onBindViewHolder(WeatherPagerAdapter.WeatherViewHolder holder, int position, List<Object> payloads) {
@@ -26,7 +27,7 @@ public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapte
     }
     @Override
     public int getItemCount() {
-        return mWeather.size();
+        return mForecast.size();
     }
     @Override
     public WeatherPagerAdapter.WeatherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,12 +37,12 @@ public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapte
     }
     @Override
     public void onBindViewHolder(WeatherPagerAdapter.WeatherViewHolder holder, int position) {
-        holder.bindWeather(mWeather.get(position));
+        holder.bindWeather(mForecast.get(position));
     }
 
     public class WeatherViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.weatherConditionTextView)
-        TextView mConditionsView;
+        @BindView(R.id.forecastTextView) TextView mConditionsView;
+        @BindView(R.id.forecastDateTextView) TextView mConditionsDateView;
         private Context mContext;
 
         public WeatherViewHolder(View itemView) {
@@ -50,8 +51,9 @@ public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapte
             mContext = itemView.getContext();
         }
 
-        public void bindWeather(Weather weather) {
-            mConditionsView.setText(weather.getMain());
+        public void bindWeather(Forecast forecast) {
+            mConditionsView.setText(forecast.getDesc());
+            mConditionsDateView.setText(forecast.getDate());
         }
 
     }
