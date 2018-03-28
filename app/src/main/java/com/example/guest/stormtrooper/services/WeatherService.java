@@ -3,6 +3,7 @@ package com.example.guest.stormtrooper.services;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import com.example.guest.stormtrooper.Constants;
+import com.example.guest.stormtrooper.models.Forecast;
 import com.example.guest.stormtrooper.models.Weather;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,13 +20,12 @@ import okhttp3.Response;
 public class WeatherService {
 
     public static ArrayList<Weather> weathers;
+    public static ArrayList<Forecast> forecasts;
 
     public static void findWeather(String location, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.W_BASE_URL + location).newBuilder();
-//        urlBuilder.addQueryParameter(Constants.W_QUERY_PARAMETER, location);
-//        urlBuilder.addQueryParameter(Constants.);
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.W_BASE_URL + Constants.W_WEATHER + location).newBuilder();
         urlBuilder.addQueryParameter(Constants.W_END_URL,Constants.W_TOKEN);
         String url = urlBuilder.build().toString();
         Log.v("TAG", url);
@@ -37,6 +37,24 @@ public class WeatherService {
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
+
+    public static void findForecast(String location, Callback callback) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.W_BASE_URL + Constants.W_FORECAST + location).newBuilder();
+        urlBuilder.addQueryParameter(Constants.W_END_URL,Constants.W_TOKEN);
+        String url = urlBuilder.build().toString();
+        Log.v("TAG", url);
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+    }
+
+
     public static ArrayList<Weather> getWeathers() {
         return weathers;
     }
@@ -64,5 +82,34 @@ public class WeatherService {
             e.printStackTrace();
         }
         return weathers;
+    }
+
+    public ArrayList<Forecast> processForecastResults(Response response) {
+        forecasts = new ArrayList<>();
+
+        try {
+
+            String jsonData = response.body().string();
+
+            JSONObject wJSON = new JSONObject(jsonData);
+            Log.v("wJson", wJSON.toString());
+            JSONArray conditionsJSONarray= wJSON.getJSONArray("list");
+            Log.v("Log 4", "log 4");
+            for(int i=0; i<conditionsJSONarray.length(); i++){
+                JSONObject conditionsJSON = conditionsJSONarray.getJSONObject(i);
+                JSONObject weatherMain = conditionsJSON.getJSONObject("weather");
+                String date = conditionsJSON.getString("dt_txt");
+                String desc = weatherMain.getString("main");
+                Forecast forecast = new Forecast(desc, date);
+                forecasts.add(forecast);
+            }
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return forecasts;
     }
 }

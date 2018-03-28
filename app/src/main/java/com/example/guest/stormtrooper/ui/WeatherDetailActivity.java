@@ -90,13 +90,15 @@ public class WeatherDetailActivity extends AppCompatActivity  {
                         mWeather = weatherService.processResults(response);
                         Log.v("help", String.valueOf(mWeather.size()));
 //                        mDetailsDataTextView.setText(mWeather.get(0).getMain());
+                        Weather main = mWeather.get(0);
+                        mDetailsDataTextView.setText(main.getMain());
 
-                        mAdapter = new WeatherPagerAdapter(getApplicationContext(), mWeather);
-                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(WeatherDetailActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
+//                        mAdapter = new WeatherPagerAdapter(getApplicationContext(), mWeather);
+//                        mRecyclerView.setAdapter(mAdapter);
+//                        RecyclerView.LayoutManager layoutManager =
+//                                new LinearLayoutManager(WeatherDetailActivity.this);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setHasFixedSize(true);
 
                     }
                 });
