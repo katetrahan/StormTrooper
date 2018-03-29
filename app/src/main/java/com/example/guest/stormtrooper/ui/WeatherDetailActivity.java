@@ -35,15 +35,12 @@ import org.parceler.Parcels;
 public class WeatherDetailActivity extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.viewPager) ViewPager mViewPager;
     @BindView(R.id.detailsTextView) TextView mDetailsTextView;
-    @BindView(R.id.getIdeasButton) Button mGetIdeasButton;
     @BindView(R.id.detailsDataTextView) TextView mDetailsDataTextView;
     private WeatherPagerAdapter mAdapter;
     private ArrayList<Weather> mWeather = new ArrayList<>();
     private ArrayList<Forecast> mForecast = new ArrayList<>();
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.weatherLabel) TextView mWeatherLabel;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +57,6 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
         mDetailsTextView.setTypeface(droidFont);
 
         mDetailsTextView.setText("The weather for:  " + location);
-//        mGetIdeasButton.setOnClickListener(this);
 
         mWeatherLabel.setOnClickListener(this);
 
@@ -135,10 +131,6 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
                     }
                 });
 
-//                for(int i = 0; i < mWeather.size(); i++) {
-//                    mDetailsDataTextView.setText(mWeather.get(i).getMain());
-//                    mDetailsDataTextView.setText("test");
-//                }
 
             }
         });

@@ -70,20 +70,20 @@
     </android.support.v4.view.ViewPager>
 
 
-    <Button
-        android:id="@+id/getIdeasButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="0dp"
-        android:background="@color/colorAccent"
-        android:text="What should I do today?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/getIdeasButton"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginBottom="0dp"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:text="What should I do today?"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.5"-->
+        <!--app:layout_constraintStart_toStartOf="parent" />-->
 
     <TextView
         android:id="@+id/detailsTextView"
