@@ -13,16 +13,16 @@
 
 ## Idea/Explanation
 
-_This application is used to take in the User's Location and share the weather of that location. Depending on the weather result the application will give ideas on what to do that day or it will give ideas on where to go if the user wishes to escape to a different weather condition. Created 3/16/2018._
+_This application is used to take in the User's Location and share the weather of that location. I plan to add inches of rain to the app and based on how much rain is in the area I would like to add a guide on how much water to give plants as overwatering can be just as dangerous as under watering.. Created 3/16/2018._
 
 ### Specs
 | Behavior | Input | Output |
 | :-------------     | :------------- | :-------------
 | **Main Activity displays purpose of application**| |  |
 | **Location Activity takes in location**| "Portland" | "Portland" |
-| **Things To Do Activity displays list of ideas/experiences to enjoy in the weather provided**| "Windy" | "Fly a kite"|
-| **Displays list of information about the weather in that place** |"Chicago"| "42 degrees, Windy, Sun set at 6pm"|
-| **Gathers user input and displays in another activity** |"Portland"|"The weather in: Portland"|
+| **Displays amount of rain in that given place**| "Portland" | "4 inches" |
+| **Displays list of information about the weather in that place** |"Chicago"| "42 degrees, Windy"|
+
 
 
 ## Goals for today
@@ -33,8 +33,8 @@ _This application is used to take in the User's Location and share the weather o
 * Gather user input and pass it to another activity
 
 ## How I plan to build out the app in the future.
-* Next week I plan to add a weather api.
-* I would like to be able to have locations appear to the user based on what weather they would like to be in.
+* I would like to query inches of rain for a given place from the API.
+* I want to add a guide for watering plants into my application.
 
 
 ## Setup/Installation Requirements
