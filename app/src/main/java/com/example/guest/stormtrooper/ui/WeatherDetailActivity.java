@@ -3,6 +3,7 @@ package com.example.guest.stormtrooper.ui;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.hardware.ConsumerIrManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -31,7 +32,7 @@ import okhttp3.Response;
 import org.parceler.Parcels;
 
 
-public class WeatherDetailActivity extends AppCompatActivity  {
+public class WeatherDetailActivity extends AppCompatActivity implements View.OnClickListener  {
     @BindView(R.id.viewPager) ViewPager mViewPager;
     @BindView(R.id.detailsTextView) TextView mDetailsTextView;
     @BindView(R.id.getIdeasButton) Button mGetIdeasButton;
@@ -40,6 +41,7 @@ public class WeatherDetailActivity extends AppCompatActivity  {
     private ArrayList<Weather> mWeather = new ArrayList<>();
     private ArrayList<Forecast> mForecast = new ArrayList<>();
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.weatherLabel) TextView mWeatherLabel;
 
 
 
@@ -60,21 +62,24 @@ public class WeatherDetailActivity extends AppCompatActivity  {
         mDetailsTextView.setText("The weather for:  " + location);
 //        mGetIdeasButton.setOnClickListener(this);
 
+        mWeatherLabel.setOnClickListener(this);
+
         getWeather(location);
         getForecast(location);
 
     }
 
-//    @Override
-//    public void onClick(View v){
-//        if (v == mGetIdeasButton) {
-//
-//            Intent intent = new Intent(WeatherDetailActivity.this,RecreationActivity.class);
-//            startActivity(intent);
-//
-//        }
-//
-//    }
+    @Override
+    public void onClick(View v){
+        if (v == mWeatherLabel) {
+
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.conserveh2o.org"));
+            startActivity(webIntent);
+
+        }
+
+    }
 
     private void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();

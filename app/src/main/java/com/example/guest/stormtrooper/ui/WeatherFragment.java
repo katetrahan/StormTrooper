@@ -16,8 +16,8 @@ import butterknife.ButterKnife;
 import org.parceler.Parcels;
 
 public class WeatherFragment extends Fragment {
-    @BindView(R.id.weatherMainTextView)
-    TextView mTextLabel;
+    @BindView(R.id.weatherMainTextView) TextView mTextLabel;
+
     private Weather mWeather;
 
 
@@ -49,6 +49,7 @@ public class WeatherFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_weather2, container, false);
 
         mTextLabel.setText(mWeather.getMain());
+
 
         return view;
     }
