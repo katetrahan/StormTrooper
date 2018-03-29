@@ -6,7 +6,7 @@ public class Forecast {
     private String date;
     private String rain;
 
-    public Forecast(String desc, String date){
+    public Forecast(String desc, String date, String rain){
         this.desc = desc;
         this.date = date;
         this.rain= rain;

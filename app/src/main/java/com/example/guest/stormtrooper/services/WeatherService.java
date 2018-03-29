@@ -1,6 +1,7 @@
 package com.example.guest.stormtrooper.services;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.models.Forecast;
@@ -68,12 +69,24 @@ public class WeatherService {
                 JSONObject conditionsJSON = conditionsJSONarray.getJSONObject(i);
                 JSONArray weatherMain = conditionsJSON.getJSONArray("weather");
                 Log.v("Hi", conditionsJSON.toString());
-//                JSONObject weatherRain = conditionsJSON.getJSONObject("rain");
-//                Log.v("RAIN", weatherRain.toString());
+                String rain = "";
+                if(conditionsJSON.optJSONObject("rain")!=null){
+                    rain = conditionsJSON.getJSONObject( "rain").getString("3h");
+                } else {
+                    rain = " no rain";
+                }
+
+//                String rain = conditionsJSON.getJSONObject( "rain").getString("3h");
+
+                Log.v("RAIN", rain.toString());
+                Log.v("RAIN", rain.toString());
+
+
+
                 String date = conditionsJSON.getString("dt_txt");
                 String desc = weatherMain.getJSONObject(0).getString("main");
 //                String rain = weatherRain.getString("3h");
-                Forecast forecast = new Forecast(desc, date);
+                Forecast forecast = new Forecast(desc, date, rain);
                 forecasts.add(forecast);
             }
 

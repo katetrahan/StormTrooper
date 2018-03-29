@@ -55,7 +55,7 @@ public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapte
         public void bindWeather(Forecast forecast) {
             mConditionsView.setText(forecast.getDesc());
             mConditionsDateView.setText(forecast.getDate());
-//            mConditionsRainView.setText(forecast.getRain());
+            mConditionsRainView.setText(forecast.getRain());
 
         }
 
