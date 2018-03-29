@@ -57,7 +57,6 @@ public class WeatherService {
         forecasts = new ArrayList<>();
         Log.v("BUTT", response.toString());
 
-
         try {
 
             String jsonData = response.body().string();
@@ -68,8 +67,12 @@ public class WeatherService {
             for(int i=0; i<conditionsJSONarray.length(); i++){
                 JSONObject conditionsJSON = conditionsJSONarray.getJSONObject(i);
                 JSONArray weatherMain = conditionsJSON.getJSONArray("weather");
+                Log.v("Hi", conditionsJSON.toString());
+//                JSONObject weatherRain = conditionsJSON.getJSONObject("rain");
+//                Log.v("RAIN", weatherRain.toString());
                 String date = conditionsJSON.getString("dt_txt");
                 String desc = weatherMain.getJSONObject(0).getString("main");
+//                String rain = weatherRain.getString("3h");
                 Forecast forecast = new Forecast(desc, date);
                 forecasts.add(forecast);
             }
@@ -93,7 +96,6 @@ public class WeatherService {
         try {
 
             String jsonData = response.body().string();
-
             JSONObject wJSON = new JSONObject(jsonData);
             Log.v("wJson", wJSON.toString());
             JSONArray conditionsJSONarray= wJSON.getJSONArray("weather");

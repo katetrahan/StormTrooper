@@ -43,6 +43,7 @@ public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapte
     public class WeatherViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.forecastTextView) TextView mConditionsView;
         @BindView(R.id.forecastDateTextView) TextView mConditionsDateView;
+        @BindView(R.id.forecastRainTextView) TextView mConditionsRainView;
         private Context mContext;
 
         public WeatherViewHolder(View itemView) {
@@ -54,6 +55,8 @@ public class WeatherPagerAdapter extends RecyclerView.Adapter<WeatherPagerAdapte
         public void bindWeather(Forecast forecast) {
             mConditionsView.setText(forecast.getDesc());
             mConditionsDateView.setText(forecast.getDate());
+//            mConditionsRainView.setText(forecast.getRain());
+
         }
 
     }
