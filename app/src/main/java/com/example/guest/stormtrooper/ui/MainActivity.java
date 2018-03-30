@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         public void saveLocationtoFirebase(String location) {
-        mSearchedLocationReference.setValue(location);
+        mSearchedLocationReference.push().setValue(location);
         }
 //    }
 
