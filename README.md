@@ -32,11 +32,15 @@ _This application is used to take in the User's Location and share the weather o
 * Add Dialogs to inform users of login status.
 * Implement Firebase authentication.
 
+##Firebase
+![firebase](app/drawable/firebase.png)
+
 ## Things I need to add to this app:
-* New Visual that relates more to plants.
-* Add an activity guide for watering plants into my application.
-* Add humidity to the data set.
-* Clean up visuals.
+* Get Planting Button needs to click through to the correct activity
+* Make Monthly Plants saveable into firebase
+* Add recycleview for saved items from firebase
+* Add account login
+* Get Shared Preferences working
 
 
 ## Setup/Installation Requirements

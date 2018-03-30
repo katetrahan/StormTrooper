@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
@@ -47,6 +48,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.weatherLabel) TextView mWeatherLabel;
     private SharedPreferences mSharedPreferences;
     private String mRecentLocation;
+    @BindView(R.id.getPlantingButton) Button mGetPlantingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +93,13 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
 
         }
 
-    }
+//            if (v == mGetPlantingButton) {
+//                    Intent intent = new Intent(WeatherDetailActivity.this, PlantListActivity.class);
+//                    startActivity(intent);
+//
+//                }
+            }
+
 
     private void getForecast(String location) {
         final WeatherService weatherService = new WeatherService();
