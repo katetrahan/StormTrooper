@@ -19,7 +19,7 @@
         android:id="@+id/frontPageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The App that helps you escape boredom.\nWeather you like it or not."
+        android:text="For the anti-green thumbs of the world"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_centerHorizontal= "true"
         app:layout_constraintLeft_toLeftOf="parent"

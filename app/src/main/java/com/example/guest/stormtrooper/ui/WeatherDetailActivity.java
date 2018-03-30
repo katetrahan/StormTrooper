@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
-//import com.example.guest.stormtrooper.adapters.WeatherListAdapter;
+//import com.example.guest.stormtrooper.adapters.PlantListAdapter;
 import com.example.guest.stormtrooper.adapters.WeatherPagerAdapter;
 import com.example.guest.stormtrooper.models.Forecast;
 import com.example.guest.stormtrooper.models.Weather;

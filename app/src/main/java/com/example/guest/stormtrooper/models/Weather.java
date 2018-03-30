@@ -3,6 +3,8 @@ package com.example.guest.stormtrooper.models;
 public class Weather {
     private String main;
 
+    public Weather() {}
+
     public Weather(String main){
         this.main = main;
     }
