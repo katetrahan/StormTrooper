@@ -8,4 +8,5 @@ public class Constants {
     public static final String W_FORECAST = "forecast?q=";
     public static final String W_QUERY_PARAMETER = "location";
     public static final String W_END_URL = "appid";
+    public static final String PREFERENCES_LOCATION_KEY = "location";
 }

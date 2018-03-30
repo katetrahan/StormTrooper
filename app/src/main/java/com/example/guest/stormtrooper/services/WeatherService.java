@@ -56,7 +56,6 @@ public class WeatherService {
     }
     public ArrayList<Forecast> processForecastResults(Response response) {
         forecasts = new ArrayList<>();
-        Log.v("BUTT", response.toString());
 
         try {
 
@@ -64,7 +63,6 @@ public class WeatherService {
             JSONObject wJSON = new JSONObject(jsonData);
             Log.v("wJson", wJSON.toString());
             JSONArray conditionsJSONarray= wJSON.getJSONArray("list");
-            Log.v("Log 4", "log 4");
             for(int i=0; i<conditionsJSONarray.length(); i++){
                 JSONObject conditionsJSON = conditionsJSONarray.getJSONObject(i);
                 JSONArray weatherMain = conditionsJSON.getJSONArray("weather");
@@ -75,11 +73,6 @@ public class WeatherService {
                 } else {
                     rain = " no rain";
                 }
-
-//                String rain = conditionsJSON.getJSONObject( "rain").getString("3h");
-
-                Log.v("RAIN", rain.toString());
-                Log.v("RAIN", rain.toString());
 
 
 

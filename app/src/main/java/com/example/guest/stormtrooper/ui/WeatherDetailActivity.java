@@ -91,7 +91,6 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
                 WeatherDetailActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.v("help", String.valueOf(mForecast.size()));
 
                         mAdapter = new WeatherPagerAdapter(getApplicationContext(), mForecast);
                         mRecyclerView.setAdapter(mAdapter);
@@ -121,8 +120,6 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void run() {
 
-
-                        Log.v("help", String.valueOf(mWeather.size()));
 
                         Weather main = mWeather.get(0);
                         mDetailsDataTextView.setText(main.getMain());
