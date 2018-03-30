@@ -32,8 +32,7 @@ _This application is used to take in the User's Location and share the weather o
 * Add Dialogs to inform users of login status.
 * Implement Firebase authentication.
 
-##Firebase
-![firebase](app/drawable/firebase.png)
+
 
 ## Things I need to add to this app:
 * Get Planting Button needs to click through to the correct activity
