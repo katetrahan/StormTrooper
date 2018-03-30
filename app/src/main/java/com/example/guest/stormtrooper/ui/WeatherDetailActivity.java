@@ -1,10 +1,12 @@
 package com.example.guest.stormtrooper.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.hardware.ConsumerIrManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -15,6 +17,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
 //import com.example.guest.stormtrooper.adapters.WeatherListAdapter;
 import com.example.guest.stormtrooper.adapters.WeatherPagerAdapter;
@@ -41,6 +45,8 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
     private ArrayList<Forecast> mForecast = new ArrayList<>();
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.weatherLabel) TextView mWeatherLabel;
+    private SharedPreferences mSharedPreferences;
+    private String mRecentLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,17 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
         getWeather(location);
         getForecast(location);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (mRecentLocation != null) {
+            getWeather(mRecentLocation);
+            getForecast(mRecentLocation);
+        }
     }
+
+
+
+
 
     @Override
     public void onClick(View v){

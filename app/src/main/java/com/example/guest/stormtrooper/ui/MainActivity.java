@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
+import com.example.guest.stormtrooper.models.Weather;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,25 +45,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFindWeatherButton.setOnClickListener(this);
 
 
-        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        Log.d("SharedPrefLocation", mRecentLocation);
-    }
+
+        }
+
 
     @Override
     public void onClick (View v) {
         if (v == mFindWeatherButton) {
             String location = mLocationEditText.getText().toString();
-            addToSharedPreferences(location);
-            if (location.length() <= 1) {
-                Toast.makeText(MainActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
-            } else {
+            if(!(location).equals("")){
+                addToSharedPreferences(location);
+            }
+//            if (location.length() <= 1) {
+//                Toast.makeText(MainActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
+//            } else {
                 Intent intent = new Intent(MainActivity.this, WeatherDetailActivity.class);
                 intent.putExtra("location", location);
                 startActivity(intent);
 
             }
         }
-    }
+//    }
 
 
         private void addToSharedPreferences(String location) {
