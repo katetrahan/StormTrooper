@@ -26,15 +26,17 @@ _This application is used to take in the User's Location and share the weather o
 
 
 ## Goals for today
-* Create Activities
-* Display list of information
-* Implement custom adapters
-* Add custom typefaces
-* Gather user input and pass it to another activity
+* Add save and retrieve using Firebase functionality.
+* Add Firebase-RecycleAdapter to display from database.
+* Use SharedPreferences to save important piece of data.
+* Add Dialogs to inform users of login status.
+* Implement Firebase authentication.
 
-## How I plan to build out the app in the future.
-* I would like to query inches of rain for a given place from the API.
-* I want to add a guide for watering plants into my application.
+## Things I need to add to this app:
+* New Visual that relates more to plants.
+* Add an activity guide for watering plants into my application.
+* Add humidity to the data set.
+* Clean up visuals.
 
 
 ## Setup/Installation Requirements
