@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    private SharedPreferences.Editor mEditor;
 
     private DatabaseReference mSearchedLocationReference;
+    private ValueEventListener mSearchedLocationReferenceListener;
 
 
     @BindView(R.id.findWeatherButton) Button mFindWeatherButton;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
 
-        mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
+        mSearchedLocationReferenceListener = mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -100,10 +101,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
         public void saveLocationtoFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
         }
-//    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
+    }
+
 
 
 //        private void addToSharedPreferences(String location) {
