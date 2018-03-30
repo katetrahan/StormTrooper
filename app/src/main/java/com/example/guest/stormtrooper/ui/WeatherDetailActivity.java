@@ -69,12 +69,12 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
         getWeather(location);
         getForecast(location);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (mRecentLocation != null) {
-            getWeather(mRecentLocation);
-            getForecast(mRecentLocation);
-        }
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        if (mRecentLocation != null) {
+//            getWeather(mRecentLocation);
+//            getForecast(mRecentLocation);
+//        }
     }
 
 
