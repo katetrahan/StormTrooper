@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "931762964606",
+    "firebase_url": "https://stormtrooper-d37ee.firebaseio.com",
+    "project_id": "stormtrooper-d37ee",
+    "storage_bucket": "stormtrooper-d37ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931762964606:android:f531e26533ae098b",
+        "android_client_info": {
+          "package_name": "com.example.guest.stormtrooper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931762964606-56euudq6dugmt2fnmavcmpn6graq6ljp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guest.stormtrooper",
+            "certificate_hash": "12ab5aa77fea34f817c6bb599ef73854081bb46e"
+          }
+        },
+        {
+          "client_id": "931762964606-8pgffrf4i1daino1jddjjtil18qjjkjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqfthvJqMjWP_SbzwrLkL8I94WHOJS4h8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931762964606-8pgffrf4i1daino1jddjjtil18qjjkjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

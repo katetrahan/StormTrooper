@@ -15,15 +15,19 @@ import android.widget.Toast;
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
 import com.example.guest.stormtrooper.models.Weather;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private SharedPreferences mSharedPreferences;
-    private String mRecentLocation;
-    private SharedPreferences.Editor mEditor;
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentLocation;
+//    private SharedPreferences.Editor mEditor;
+
+    private DatabaseReference mSearchedLocationReference;
 
 
     @BindView(R.id.findWeatherButton) Button mFindWeatherButton;
@@ -32,18 +36,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mSearchedLocationReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
 
         Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
         mFrontPageTextView.setTypeface(droidFont);
 
         mFindWeatherButton.setOnClickListener(this);
-
 
 
         }
@@ -53,9 +63,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick (View v) {
         if (v == mFindWeatherButton) {
             String location = mLocationEditText.getText().toString();
-            if(!(location).equals("")){
-                addToSharedPreferences(location);
-            }
+
+            saveLocationtoFirebase(location);
+
+//            if(!(location).equals("")){
+//                addToSharedPreferences(location);
+//            }
 //            if (location.length() <= 1) {
 //                Toast.makeText(MainActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
 //            } else {
@@ -65,12 +78,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         }
+
+        public void saveLocationtoFirebase(String location) {
+        mSearchedLocationReference.setValue(location);
+        }
 //    }
 
 
-        private void addToSharedPreferences(String location) {
-            mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-        }
+//        private void addToSharedPreferences(String location) {
+//            mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+//        }
 
     }
 
