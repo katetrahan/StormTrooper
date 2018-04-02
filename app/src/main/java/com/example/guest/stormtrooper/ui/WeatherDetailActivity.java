@@ -67,6 +67,7 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
         mDetailsTextView.setText("The weather for:  " + location);
 
         mWeatherLabel.setOnClickListener(this);
+        mGetPlantingButton.setOnClickListener(this);
 
         getWeather(location);
         getForecast(location);
@@ -92,12 +93,11 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
             startActivity(webIntent);
 
         }
+            if (v == mGetPlantingButton) {
+                    Intent intent = new Intent(WeatherDetailActivity.this, PlantNotesActivity.class);
+                    startActivity(intent);
 
-//            if (v == mGetPlantingButton) {
-//                    Intent intent = new Intent(WeatherDetailActivity.this, PlantListActivity.class);
-//                    startActivity(intent);
-//
-//                }
+                }
             }
 
 
