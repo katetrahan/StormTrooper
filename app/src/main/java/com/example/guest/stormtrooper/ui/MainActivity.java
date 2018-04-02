@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
+    private DatabaseReference mNotesReference;
 
 
     @BindView(R.id.findWeatherButton) Button mFindWeatherButton;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_LOCATION);
+
 
         mSearchedLocationReferenceListener = mSearchedLocationReference.addValueEventListener(new ValueEventListener() {
 
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             saveLocationtoFirebase(location);
 
+
 //            if(!(location).equals("")){
 //                addToSharedPreferences(location);
 //            }
@@ -109,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void saveLocationtoFirebase(String location) {
         mSearchedLocationReference.push().setValue(location);
         }
+
 
 
     @Override
