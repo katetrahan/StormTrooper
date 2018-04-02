@@ -11,28 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".ui.MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        </activity>
+        <!-- <activity android:name=".ui.WeatherActivity"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.example.guest.stormtrooper.ui.MainActivity"></meta-data> -->
+        <!-- </activity> -->
+        <activity android:name=".ui.WeatherDetailActivity" />
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.example.guest.stormtrooper.ui.WeatherDetailActivity"></meta-data> -->
+        <!-- </activity> -->
+        <activity android:name=".ui.PlantListActivity" />
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="com.example.guest.stormtrooper.ui.WeatherDetailActivity"></meta-data> -->
+        <!-- </activity> -->
+        <activity android:name=".ui.CreateAccountActivity" />
+        <activity android:name=".ui.LoginActivity">
+
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
-        <!--<activity android:name=".ui.WeatherActivity">-->
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.example.guest.stormtrooper.ui.MainActivity"></meta-data>-->
-        <!--</activity>-->
-        <activity android:name=".ui.WeatherDetailActivity"/>
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.example.guest.stormtrooper.ui.WeatherDetailActivity"></meta-data>-->
-        <!--</activity>-->
-        <activity android:name=".ui.PlantListActivity"/>
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.example.guest.stormtrooper.ui.WeatherDetailActivity"></meta-data>-->
-        <!--</activity>-->
     </application>
-
 </manifest>
