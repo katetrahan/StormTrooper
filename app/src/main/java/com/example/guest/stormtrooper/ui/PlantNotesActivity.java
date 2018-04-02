@@ -49,7 +49,7 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void saveNoteToFirebase(String note) {
-        mNotesReference.setValue(note);
+        mNotesReference.push().setValue(note);
     }
 
 }
