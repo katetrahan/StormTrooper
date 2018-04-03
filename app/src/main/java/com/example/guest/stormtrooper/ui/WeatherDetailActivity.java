@@ -64,24 +64,24 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
         Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
         mDetailsTextView.setTypeface(droidFont);
 
-        mDetailsTextView.setText("The weather for:  " + location);
-
         mWeatherLabel.setOnClickListener(this);
         mGetPlantingButton.setOnClickListener(this);
 
-        getWeather(location);
-        getForecast(location);
+       mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        Log.d("Shared Pref Location", mRecentLocation);
+        if (mRecentLocation != null) {
+            Log.v("HI", mRecentLocation);
+            getWeather(mRecentLocation);
+            getForecast(mRecentLocation);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-//        if (mRecentLocation != null) {
-//            getWeather(mRecentLocation);
-//            getForecast(mRecentLocation);
-//        }
+
+        }
+        mDetailsTextView.setText("The weather for:  " + mRecentLocation);
+
+//        getWeather(Constants.PREFERENCES_LOCATION_KEY);
+//        getForecast(Constants.PREFERENCES_LOCATION_KEY);
     }
-
-
-
 
 
     @Override

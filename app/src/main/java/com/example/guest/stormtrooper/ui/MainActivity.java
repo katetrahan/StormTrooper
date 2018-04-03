@@ -30,9 +30,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    private SharedPreferences mSharedPreferences;
-//    private String mRecentLocation;
-//    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
+    private String mRecentLocation;
+    private SharedPreferences.Editor mEditor;
 
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
@@ -69,49 +69,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         });
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         Typeface droidFont = Typeface.createFromAsset(getAssets(), "fonts/DroidSans.ttf");
         mFrontPageTextView.setTypeface(droidFont);
 
         mFindWeatherButton.setOnClickListener(this);
 
-
         }
-
 
     @Override
     public void onClick (View v) {
         if (v == mFindWeatherButton) {
             String location = mLocationEditText.getText().toString();
 
-            saveLocationtoFirebase(location);
+            String mSaved = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
 
+//            saveLocationtoFirebase(location);
 
-//            if(!(location).equals("")){
-//                addToSharedPreferences(location);
-//            }
-            if (location.length() <= 1) {
+            if(!(location).equals("")){
+                addToSharedPreferences(location);
+            }
+
+            if (mSaved == null) {
                 Toast.makeText(MainActivity.this, "Please add a location", Toast.LENGTH_LONG).show();
             } else {
+
                 Intent intent = new Intent(MainActivity.this, WeatherDetailActivity.class);
-                intent.putExtra("location", location);
                 startActivity(intent);
 
             }
+
         }
     }
 
-
-        public void saveLocationtoFirebase(String location) {
-        mSearchedLocationReference.push().setValue(location);
-        }
+//        public void saveLocationtoFirebase(String location) {
+//        mSearchedLocationReference.push().setValue(location);
+//        }
 
 
 
@@ -145,12 +144,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
         finish();
     }
-
-
-
-//        private void addToSharedPreferences(String location) {
-//            mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
-//        }
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    }
 
     }
 
