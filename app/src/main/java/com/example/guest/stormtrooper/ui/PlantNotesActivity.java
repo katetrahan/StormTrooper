@@ -29,6 +29,7 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
 
     private DatabaseReference mNotesReference;
     private ValueEventListener mNoteReferenceListener;
+    private Note mNote;
 
     @BindView(R.id.saveNoteButton) Button mSaveNoteButton;
     @BindView(R.id.editNoteText) EditText mEditNoteText;
@@ -71,6 +72,12 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         if (v == mSaveNoteButton) {
 
+            String inputNote = mEditNoteText.getText().toString();
+
+            mNote = new Note(inputNote);
+
+//            saveNoteToFirebase(note);
+
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
@@ -81,16 +88,9 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
 
             DatabaseReference pushRef = noteRef.push();
             String pushId = pushRef.getKey();
-//            mRestaurant.setPushId(pushId); // NEED TO SAVE TO UNIQUE USER
-//            pushRef.setValue(mRestaurant);
+            mNote.setPushId(pushId); // NEED TO SAVE TO UNIQUE USER
+            pushRef.setValue(mNote);
 
-
-
-            String inputNote = mEditNoteText.getText().toString();
-
-            Note note = new Note(inputNote);
-
-            saveNoteToFirebase(note);
 
             Toast.makeText(PlantNotesActivity.this, "Saved", Toast.LENGTH_SHORT).show();
 
@@ -105,6 +105,7 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void saveNoteToFirebase(Note note) {
+
         mNotesReference.push().setValue(note);
     }
 

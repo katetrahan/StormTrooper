@@ -41,8 +41,8 @@ public class SavedNotesListActivity extends AppCompatActivity {
 
         mNoteReference = FirebaseDatabase
                 .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_NOTES);
-//                .child(uid);
+                .getReference(Constants.FIREBASE_CHILD_NOTES)
+                .child(uid);
 
          mNoteFireBaseListener= mNoteReference.addValueEventListener(new ValueEventListener() {
             @Override
