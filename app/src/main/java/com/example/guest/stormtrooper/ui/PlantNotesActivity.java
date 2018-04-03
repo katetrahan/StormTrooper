@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
@@ -21,6 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static java.security.AccessController.getContext;
 
 public class PlantNotesActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -88,6 +91,8 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
             Note note = new Note(inputNote);
 
             saveNoteToFirebase(note);
+
+            Toast.makeText(PlantNotesActivity.this, "Saved", Toast.LENGTH_SHORT).show();
 
 
         }
