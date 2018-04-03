@@ -23,23 +23,23 @@ public class PlantListAdapter{
         mContext = context;
 
     }
-
+//
 //    @Override
 //    public PlantListAdapter.WeatherViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.plant_list_item, parent, false);
 //        WeatherViewHolder viewHolder = new WeatherViewHolder(view);
 //        return viewHolder;
 //    }
-
+//
 //    @Override
 //    public void onBindViewHolder(PlantListAdapter.WeatherViewHolder holder, int position) {
 //
 //    }
-
-//    @Override
-//    public int getItemCount() {
 //
-//    }
+////    @Override
+////    public int getItemCount() {
+////
+////    }
 
 
     public class WeatherViewHolder extends RecyclerView.ViewHolder {
