@@ -68,14 +68,19 @@ public class PlantNotesActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         if (v == mSaveNoteButton) {
 
-//            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//            String uid = user.getUid();
-//
-//            DatabaseReference restaurantRef = FirebaseDatabase
-//                    .getInstance()
-//                    .getReference(Constants.FIREBASE_CHILD_NOTES)
-//                    .child(uid);
-//
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            DatabaseReference noteRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_NOTES)
+                    .child(uid);
+
+            DatabaseReference pushRef = noteRef.push();
+            String pushId = pushRef.getKey();
+//            mRestaurant.setPushId(pushId); // NEED TO SAVE TO UNIQUE USER
+//            pushRef.setValue(mRestaurant);
+
 
 
             String inputNote = mEditNoteText.getText().toString();

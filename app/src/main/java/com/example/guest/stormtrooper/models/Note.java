@@ -7,6 +7,7 @@ package com.example.guest.stormtrooper.models;
 public class Note {
 
     private String note;
+    private String pushId;
 
     public String getNote() {
         return note;
@@ -17,5 +18,15 @@ public class Note {
     }
 
     public Note(){}
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
+
 
 }

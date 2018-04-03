@@ -25,7 +25,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="15dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
         <EditText
@@ -38,7 +38,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="15dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
         <EditText
@@ -51,7 +51,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="15dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
         <EditText
@@ -64,7 +64,7 @@
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
             android:layout_marginBottom="15dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:background="@drawable/edit_text_style"/>
 
