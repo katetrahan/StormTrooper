@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.guest.stormtrooper.Constants;
 import com.example.guest.stormtrooper.R;
+import com.example.guest.stormtrooper.models.Note;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,11 +24,15 @@ public class FirebaseNotesViewHolder extends RecyclerView.ViewHolder {
 //        itemView.setOnClickListener(this);
     }
 
-    public void bindNote (String note) {
+    public void bindNote (Note note) {
         TextView savedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
+
+        savedNoteTextView.setText(note.getNote());
 
 //        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_NOTES);
     }
+
+
 
 
 }
