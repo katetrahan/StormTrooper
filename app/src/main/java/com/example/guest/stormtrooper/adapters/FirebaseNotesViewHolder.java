@@ -16,6 +16,7 @@ public class FirebaseNotesViewHolder extends RecyclerView.ViewHolder {
 
     View mView;
     Context mContext;
+    public TextView mSavedNoteTextView;
 
     public FirebaseNotesViewHolder(View itemView) {
         super(itemView);
@@ -25,9 +26,11 @@ public class FirebaseNotesViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindNote (Note note) {
-        TextView savedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
+        mSavedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
 
-        savedNoteTextView.setText(note.getNote());
+//        TextView savedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
+
+        mSavedNoteTextView.setText(note.getNote());
 
 //        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_NOTES);
     }
