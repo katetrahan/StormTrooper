@@ -8,6 +8,7 @@ public class Note {
 
     private String note;
     private String pushId;
+    String index;
 
     public String getNote() {
         return note;
@@ -15,6 +16,7 @@ public class Note {
 
     public Note(String note){
         this.note = note;
+        this.index="not specified";
     }
 
     public Note(){}
@@ -25,6 +27,14 @@ public class Note {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 

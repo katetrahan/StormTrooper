@@ -11,13 +11,20 @@ import com.example.guest.stormtrooper.models.Note;
 import com.example.guest.stormtrooper.util.ItemTouchHelperAdapter;
 import com.example.guest.stormtrooper.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+
+import java.util.Collections;
 
 public class FirebaseNotesListAdapter extends FirebaseRecyclerAdapter<Note, FirebaseNotesViewHolder> implements ItemTouchHelperAdapter {
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
+
+
 
 
     public FirebaseNotesListAdapter(Class<Note> modelClass, int modelLayout, Class<FirebaseNotesViewHolder> viewHolderClass,
@@ -26,29 +33,35 @@ public class FirebaseNotesListAdapter extends FirebaseRecyclerAdapter<Note, Fire
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
         mContext = context;
+
+
     }
 
     @Override
     protected void populateViewHolder(final FirebaseNotesViewHolder viewHolder, Note model, int position) {
         viewHolder.bindNote(model);
+
         viewHolder.mSavedNoteTextView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) { //may change back to motionEvent
-                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN){
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
                     mOnStartDragListener.onStartDrag(viewHolder);
                 }
                 return false;
             }
         });
+
     }
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+
         return false;
     }
 
     @Override
     public void onItemDismiss(int position){
+
 
     }
 }

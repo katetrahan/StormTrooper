@@ -25,13 +25,13 @@ import com.google.firebase.database.ValueEventListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SavedNotesListActivity extends AppCompatActivity implements OnStartDragListener {
-    private DatabaseReference mNoteReference;
-    private FirebaseNotesListAdapter mFirebaseAdapter;
-    private ValueEventListener mNoteFireBaseListener;
-    private ItemTouchHelper mItemTouchHelper;
-
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+public class SavedNotesListActivity extends AppCompatActivity  {
+//    private DatabaseReference mNoteReference;
+//    private FirebaseNotesListAdapter mFirebaseAdapter;
+//    private ValueEventListener mNoteFireBaseListener;
+//    private ItemTouchHelper mItemTouchHelper;
+//
+//    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 
 
     @Override
@@ -41,42 +41,42 @@ public class SavedNotesListActivity extends AppCompatActivity implements OnStart
         ButterKnife.bind(this);
 
 
-        setUpFirebaseAdapter();
+//        setUpFirebaseAdapter();
 
     }
 
-    private void setUpFirebaseAdapter() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mNoteReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_NOTES)
-                .child(uid);
-
-
-        mFirebaseAdapter = new FirebaseNotesListAdapter(Note.class, R.layout.note_list_item_drag, FirebaseNotesViewHolder.class,
-                        mNoteReference, this, this);
-
-
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
-
-        ItemTouchHelper.Callback callback = new SimpleTouchHelperCallback(mFirebaseAdapter);
-
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
-
-    @Override
-    public void onStartDrag(RecyclerView.ViewHolder viewHolder){
-        mItemTouchHelper.startDrag(viewHolder);
-    }
+//    private void setUpFirebaseAdapter() {
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        mNoteReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_NOTES)
+//                .child(uid);
+//
+//
+//        mFirebaseAdapter = new FirebaseNotesListAdapter(Note.class, R.layout.note_list_item_drag, FirebaseNotesViewHolder.class,
+//                        mNoteReference, this, this);
+//
+//
+//        mRecyclerView.setHasFixedSize(true);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//
+//        ItemTouchHelper.Callback callback = new SimpleTouchHelperCallback(mFirebaseAdapter);
+//
+//        mItemTouchHelper = new ItemTouchHelper(callback);
+//        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mFirebaseAdapter.cleanup();
+//    }
+//
+//    @Override
+//    public void onStartDrag(RecyclerView.ViewHolder viewHolder){
+//        mItemTouchHelper.startDrag(viewHolder);
+//    }
 }

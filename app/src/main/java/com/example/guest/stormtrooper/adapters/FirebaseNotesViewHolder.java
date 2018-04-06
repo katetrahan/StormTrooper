@@ -18,16 +18,17 @@ public class FirebaseNotesViewHolder extends RecyclerView.ViewHolder {
     Context mContext;
     public TextView mSavedNoteTextView;
 
+
     public FirebaseNotesViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-//        itemView.setOnClickListener(this);
+//       itemView.setOnClickListener(this);
     }
 
     public void bindNote (Note note) {
-        mSavedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
 
+        mSavedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
 //        TextView savedNoteTextView = (TextView) mView.findViewById(R.id.savedNoteTextView);
 
         mSavedNoteTextView.setText(note.getNote());

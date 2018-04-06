@@ -4,13 +4,27 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
 
-    tools:context=".ui.SavedNotesListActivity">>
+    tools:context=".ui.SavedNotesListActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
+    <fragment
+        android:id="@+id/fragmentNoteList"
+        android:name="com.example.guest.stormtrooper.ui.NoteListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_saved_notes_list" />
+
+
+    <View android:background="@color/colorAccent"
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/restaurantDetailContainer"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView"/>
+        android:layout_weight="6">
 
+    </FrameLayout>
 
 
 
