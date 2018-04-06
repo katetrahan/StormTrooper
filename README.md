@@ -7,13 +7,13 @@
   * Look into API options/research usability.
   * Draw out reasonable flow of info and user experience.
 
-#### _An application using Android Studio. Created and ready to be built on in the future._
+#### _An application using Android Studio to help the not so green thumb community keep their plants alive_
 
 #### By _**Kate Trahan**_
 
 ## Idea/Explanation
 
-_This application is used to take in the User's Location and share the weather of that location. I plan to add inches of rain to the app and based on how much rain is in the area I would like to add a guide on how much water to give plants as overwatering can be just as dangerous as under watering.. Created 3/16/2018._
+_This application is used to take in the User's Location and share the weather of that location every hour for that day. The application also shows amount of rain(mm).The user is able to log notes on their garden and plants. Created 3/16/2018._
 
 ### Specs
 | Behavior | Input | Output |
@@ -21,7 +21,7 @@ _This application is used to take in the User's Location and share the weather o
 | **Main Activity displays purpose of application**| |  |
 | **Location Activity takes in location**| "Portland" | "Portland" |
 | **Displays amount of rain in that given place**| "Portland" | "4 inches" |
-| **Displays list of information about the weather in that place** |"Chicago"| "42 degrees, Windy"|
+| **Displays list of information about the weather in that place** |"Chicago"| "rain, 2 mm"|
 
 
 
@@ -35,11 +35,8 @@ _This application is used to take in the User's Location and share the weather o
 
 
 ## Things I need to add to this app:
-* Get Planting Button needs to click through to the correct activity
-* Make Monthly Plants saveable into firebase
-* Add recycleview for saved items from firebase
-* Add account login
-* Get Shared Preferences working
+* Add alternative resource
+
 
 
 ## Setup/Installation Requirements
