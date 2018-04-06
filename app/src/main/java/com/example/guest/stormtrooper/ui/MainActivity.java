@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Sensor mSensor;
     private long lastUpdate = 0;
     private float last_x,last_y, last_z;
-    private static final int SHAKE_THRESHOLD = 500;
+    private static final int SHAKE_THRESHOLD = 700;
 
 
     @BindView(R.id.findWeatherButton) Button mFindWeatherButton;
@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if(speed > SHAKE_THRESHOLD) {
                     Log.d("SensorEventListener", "shaking");
+                    Toast.makeText(MainActivity.this, "Stop Shaking me", Toast.LENGTH_LONG).show();
 
                     last_x = x;
                     last_y = y;
