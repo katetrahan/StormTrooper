@@ -33,6 +33,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import android.support.v4.app.FragmentActivity;
 
 import org.parceler.Parcels;
 
@@ -67,21 +68,21 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
         mWeatherLabel.setOnClickListener(this);
         mGetPlantingButton.setOnClickListener(this);
 
-       mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        Log.d("Shared Pref Location", mRecentLocation);
-        if (mRecentLocation != null) {
-            Log.v("HI", mRecentLocation);
-            getWeather(mRecentLocation);
-            getForecast(mRecentLocation);
+//       mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        Log.d("Shared Pref Location", mRecentLocation);
+//        if (mRecentLocation != null) {
+//            Log.v("HI", mRecentLocation);
+//            getWeather(mRecentLocation);
+//            getForecast(mRecentLocation);
 
 
         }
-        mDetailsTextView.setText("The weather for:  " + mRecentLocation);
+//        mDetailsTextView.setText("The weather for:  " + mRecentLocation);
 
 //        getWeather(Constants.PREFERENCES_LOCATION_KEY);
 //        getForecast(Constants.PREFERENCES_LOCATION_KEY);
-    }
+//    }
 
 
     @Override
@@ -101,32 +102,32 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
             }
 
 
-    private void getForecast(String location) {
-        final WeatherService weatherService = new WeatherService();
-        weatherService.findForecast(location, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                mForecast = weatherService.processForecastResults(response);
-                WeatherDetailActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        mAdapter = new WeatherPagerAdapter(getApplicationContext(), mForecast);
-                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(WeatherDetailActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
-                    }
-                });
-            }
-        });
-    }
+//    private void getForecast(String location) {
+//        final WeatherService weatherService = new WeatherService();
+//        weatherService.findForecast(location, new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                mForecast = weatherService.processForecastResults(response);
+//                WeatherDetailActivity.this.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                        mAdapter = new WeatherPagerAdapter(getApplicationContext(), mForecast);
+//                        mRecyclerView.setAdapter(mAdapter);
+//                        RecyclerView.LayoutManager layoutManager =
+//                                new LinearLayoutManager(WeatherDetailActivity.this);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setHasFixedSize(true);
+//                    }
+//                });
+//            }
+//        });
+//    }
 
 
     private void getWeather(String location) {
