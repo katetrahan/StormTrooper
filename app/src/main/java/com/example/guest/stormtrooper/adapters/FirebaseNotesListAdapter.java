@@ -2,6 +2,7 @@ package com.example.guest.stormtrooper.adapters;
 
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MotionEvent;
@@ -18,6 +19,7 @@ public class FirebaseNotesListAdapter extends FirebaseRecyclerAdapter<Note, Fire
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
+    private int mOrientation;
 
 
     public FirebaseNotesListAdapter(Class<Note> modelClass, int modelLayout, Class<FirebaseNotesViewHolder> viewHolderClass,
@@ -31,6 +33,8 @@ public class FirebaseNotesListAdapter extends FirebaseRecyclerAdapter<Note, Fire
     @Override
     protected void populateViewHolder(final FirebaseNotesViewHolder viewHolder, Note model, int position) {
         viewHolder.bindNote(model);
+
+
         viewHolder.mSavedNoteTextView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) { //may change back to motionEvent
@@ -51,4 +55,5 @@ public class FirebaseNotesListAdapter extends FirebaseRecyclerAdapter<Note, Fire
     public void onItemDismiss(int position){
 
     }
+
 }
