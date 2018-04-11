@@ -144,10 +144,13 @@ public class WeatherDetailActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void run() {
 
-
+                    if(mWeather.size() != 0) {
                         Weather main = mWeather.get(0);
                         mDetailsDataTextView.setText(main.getMain());
 
+                    } else {
+                        Toast.makeText(WeatherDetailActivity.this, "Location was not valid", Toast.LENGTH_LONG).show();
+                    }
 
                     }
                 });
